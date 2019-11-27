@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   cursor: pointer;
   height: 150px;
-  perspective: 600;
-  position: relative;
   width: 150px;
   margin: 1em;
 
@@ -15,10 +13,11 @@ export const Container = styled.div`
 
 export const CardFlip = styled.div`
   height: 100%;
-  position: absolute;
+  width: 100%;
+
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
-  width: 100%;
+
 
 `;
 

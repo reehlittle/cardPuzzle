@@ -20,11 +20,23 @@ export default class Card extends Component{
         });
       }, 1500);
     }
+
+    //look on matchs array, see if it is in there
+    const charExist = this.props.matchs.filter(value => {
+      return value === this.props.value;
+    });
+
+    if(charExist.length && !this.state.flip  && !match) {
+      this.setState({
+        flip: true,
+        match: true
+      });
+    };
   }
 
   handleFlip = e => {
     const { match, flip} = this.state;
-    const steps = this.props.steps;
+    const { steps, value, prevValue }  = this.props;
 
     //it is already a match or its already fliped ?
     if(!match && !flip && steps <= 1){
@@ -32,8 +44,14 @@ export default class Card extends Component{
         flip: true
       });
       //do the match herer
-      this.props.incrementMoviment();
-     
+      if(value === prevValue) {
+        this.setState({
+          match: true
+        });
+        this.props.valueMatch(value);
+      }
+      this.props.incrementMoviment(value);
+
     }
     return;
   }
