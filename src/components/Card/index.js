@@ -4,21 +4,19 @@ import { Container, CardFlip, Front, Back } from './styles';
 
 export default class Card extends Component{
   state = {
-    match: false,
     flip: false
   }
 
   componentDidUpdate(prevProps) {
-    const match = this.state.match;
 
     //If it is the 3th and its not a macth, wait for 1,5 s and close
-    if (this.props.steps >= 2 && !match) {
+    if (this.props.steps >= 2) {
       setTimeout(() => {
         this.props.clearAll();
         this.setState({
           flip: false
         });
-      }, 1500);
+      }, 1005);
     }
 
     //look on matchs array, see if it is in there
@@ -26,32 +24,27 @@ export default class Card extends Component{
       return value === this.props.value;
     });
 
-    if(charExist.length && !this.state.flip  && !match) {
+    if(charExist.length && !this.state.flip) {
       this.setState({
         flip: true,
-        match: true
       });
     };
   }
 
   handleFlip = e => {
-    const { match, flip} = this.state;
+    const { flip} = this.state;
     const { steps, value, prevValue }  = this.props;
 
-    //it is already a match or its already fliped ?
-    if(!match && !flip && steps <= 1){
+    //it is already fliped ?
+    if(!flip && steps <= 1){
       this.setState({
         flip: true
       });
-      //do the match herer
+      //is ti a match?
       if(value === prevValue) {
-        this.setState({
-          match: true
-        });
         this.props.valueMatch(value);
       }
       this.props.incrementMoviment(value);
-
     }
     return;
   }
