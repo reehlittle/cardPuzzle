@@ -6,30 +6,39 @@ import Card from '../Card';
 export default class Dashboard extends Component {
   state = {
     moviments: 0,
-    flip: false,
+    steps: 0
   };
 
-  flipCard= async e =>{
-    console.log('Flip:' + this.state.flip);
-
+  handleSetMoviment = e =>{
     this.setState({
-      flip: true
-    })
+      moviments: this.state.moviments + 1,
+      steps: this.state.steps +1
+    });
+  }
+
+  clearAll = e => {
+    this.setState({
+      steps: 0,
+    });
   }
 
   render() {
-    const { moviments, flip } = this.state;
-    const value = 'CARD 1';
+    const { moviments, steps } = this.state;
 
     return (
       <Container>
         <Moviments>
           Movements: {moviments}
+          Steps: {steps}
         </Moviments>
-        <div onClick={this.flipCard}>
-          <Card value={value} flip={flip}></Card>
-        </div>
-        <Card value={'CARD 2'} flip={true}></Card>
+          <Card value={"1"} steps={steps} 
+          incrementMoviment={this.handleSetMoviment} clearAll={this.clearAll}/>
+          <Card value={"2"} steps={steps} 
+          incrementMoviment={this.handleSetMoviment} clearAll={this.clearAll}/>
+          <Card value={"3"} steps={steps} 
+          incrementMoviment={this.handleSetMoviment} clearAll={this.clearAll}/>
+          <Card value={"4"} steps={steps} 
+          incrementMoviment={this.handleSetMoviment} clearAll={this.clearAll}/>
       </Container>
     );
   }
