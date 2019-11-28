@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { Container, Moviments, Game } from './styles';
+import { Container, Moviments, Game, RightBox } from './styles';
 import Card from '../Card';
 
 export default class Dashboard extends Component {
@@ -118,10 +118,9 @@ export default class Dashboard extends Component {
 
     return (
       <Container>
-        <Moviments>
-          Movements: {moviments}
-          Steps: {steps}
-        </Moviments>
+        <RightBox>
+
+        </RightBox>
         <Game>
           {cards.map(card => (
             <Card key={card.id}
@@ -135,6 +134,14 @@ export default class Dashboard extends Component {
             />
           ))}
         </Game>
+        <Moviments>
+          <div class="box box-l">
+            <p class="player">Moviments</p>
+            <div id="playerOneCard" class="score-card">
+              <p id="playerOneScore" class="score" content="0">{moviments}</p>
+            </div>
+          </div>
+        </Moviments>
       </Container>
     );
   }

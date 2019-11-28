@@ -4,7 +4,9 @@ export const Container = styled.div`
   cursor: pointer;
   height: 150px;
   width: 150px;
-  margin: 1em;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   .rotate {
     transform: rotateY(180deg);

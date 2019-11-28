@@ -13,7 +13,9 @@ export default createGlobalStyle `
     }
 
     body {
-        background: #e2e1e0;
+        background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+        z-index:0;
+        -webkit-font-smoothing: antialiased !important;
     }
 
     body, input, button {
