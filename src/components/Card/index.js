@@ -8,7 +8,6 @@ export default class Card extends Component{
   }
 
   componentDidUpdate(prevProps) {
-
     //If it is the 3th and its not a macth, wait for 1,5 s and close
     if (this.props.steps >= 2) {
       setTimeout(() => {

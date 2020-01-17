@@ -19,8 +19,6 @@ export const CardFlip = styled.div`
 
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
-
-
 `;
 
 export const Front = styled.div`

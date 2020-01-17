@@ -35,8 +35,6 @@ export const Moviments =  styled.div`
     max-height: 500px;
   }
 
-
-
   .score-card {
     grid-row: 3;
     width: 50%;
@@ -56,6 +54,5 @@ export const Moviments =  styled.div`
     margin-top: 0.1em;
     margin-bottom: 0.8em;
   }
-
 `;
 
